@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: adarshjain428/proshopfrontend:v2
+          image: adarshjain428/proshopfrontend:v3
           ports:
             - containerPort: 80
           resources:
