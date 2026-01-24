@@ -1,0 +1,24 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: proshop
+  namespace: proshop
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - proshop-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /api
+      route:
+        - destination:
+            host: backend.proshop.svc.cluster.local
+            port:
+              number: 5000
+    - route:
+        - destination:
+            host: frontend.proshop.svc.cluster.local
+            port:
+              number: 80
